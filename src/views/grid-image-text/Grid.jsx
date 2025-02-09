@@ -95,13 +95,24 @@ const GridLayout = () => {
         </Grid>
         <Grid item xs={6}>
           <Box sx={{ marginBottom: "25px" }}>
-            <Typography variant="h4" sx={{ color: "black" }}>
+            <Typography variant="h4" sx={{ color: "#333", fontWeight: 600 }}>
               Tanishq Ring{" "}
             </Typography>
           </Box>
           <Box>
             {accordionData?.map((data) => (
               <Accordion
+                sx={{
+                  border: "1px solid #D4AF37", // Gold border for a premium feel
+                  borderRadius: "8px",
+                  boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
+                  "&:hover": {
+                    backgroundColor: "#f9f9f9",
+                  },
+                  "&.Mui-expanded": {
+                    border: "1px solid #C0A060", // Slightly darker gold when expanded
+                  },
+                }}
                 key={data.id}
                 // defaultExpanded={data.id === 1}
                 expanded={expanded === data.id}
@@ -111,7 +122,12 @@ const GridLayout = () => {
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1-content"
                   id="panel1-header"
-                  sx={{ fontSize: "17px", textTransform: "uppercase" }}
+                  sx={{
+                    fontSize: "17px",
+                    textTransform: "uppercase",
+                    padding: "12px 16px", // Better padding
+                    fontWeight: 500,
+                  }}
                 >
                   <Box
                     sx={{ display: "flex", alignItems: "center", gap: "6px" }}
@@ -144,12 +160,31 @@ const GridLayout = () => {
                 </AccordionDetails>
               </Accordion>
             ))}
-            <Accordion>
+            <Accordion
+              sx={{
+                border: "1px solid #D4AF37", // Gold border for a premium feel
+                borderRadius: "8px",
+                boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
+                "&:hover": {
+                  backgroundColor: "#f9f9f9",
+                },
+                "&.Mui-expanded": {
+                  border: "1px solid #C0A060", // Slightly darker gold when expanded
+                },
+              }}
+              expanded={expanded === "desc"}
+              onChange={handleOnChange("desc")}
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
                 id="panel1-header"
-                sx={{ fontSize: "17px", textTransform: "uppercase" }}
+                sx={{
+                  fontSize: "17px",
+                  textTransform: "uppercase",
+                  padding: "12px 16px", // Better padding
+                  fontWeight: 500,
+                }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   {accordionDesc?.icon}
@@ -157,7 +192,9 @@ const GridLayout = () => {
                 </Box>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>{accordionDesc?.value}</Typography>
+                <Typography variant="body1" sx={{ color: "#555" }}>
+                  {accordionDesc?.value}
+                </Typography>
               </AccordionDetails>
             </Accordion>
           </Box>
