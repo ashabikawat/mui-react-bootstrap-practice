@@ -68,9 +68,9 @@ const GridLayout = () => {
 
   return (
     <Box sx={{ height: "100vh", paddingX: "20px", paddingY: "30px" }}>
-      <Grid container spacing={2} sx={{ height: "100%" }}>
+      <Grid container spacing={4} sx={{ height: "100%" }}>
         <Grid item xs={6}>
-          <Box sx={{ height: "100%", position: "relative", width: "100%" }}>
+          <Box sx={{ height: "80%", position: "relative", width: "100%" }}>
             <Image
               src={"/501145FAAAC02_1.webp"}
               alt="Product image"
